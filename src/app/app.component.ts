@@ -6,21 +6,13 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  borderStyle = '1px solid black';
-alertStyle = {
-  color : 'red',
-  fontWeight : 'bold',
-  borderBottom: this.borderStyle,
-};
-style: any;
+isDark = true;
 
-  // tslint:disable-next-line:typedef
- setStyle(style: any){
-  this.style = style;
+changeStyle(): void{
+  this.isDark = !this.isDark;
 }
 
   ngOnInit(): void {
-   this.setStyle(this.alertStyle);
   }
 
 }

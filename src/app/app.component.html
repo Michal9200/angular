@@ -1,1 +1,2 @@
-<p style="padding: 1rem" [ngStyle]="alertStyle">Style me!</p>
+<p [ngClass]="{card: true, dark: isDark, flat:false}">Style me!</p>
+<button type="button" (click)="changeStyle()">Change style</button>
