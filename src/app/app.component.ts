@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MoviesServiceService} from './movies-service.service';
 import {FormControl, FormGroup} from '@angular/forms';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {UserData} from './model/UserData';
 
 @Component({
@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
       age: new FormControl(),
       country: new FormControl()
     });
-    this.getFromServer();
+    this.sendToServer();
   }
 
   onSubmit(): void {
@@ -38,6 +38,17 @@ export class AppComponent implements OnInit {
     this.http.get('http://jsonplaceholder.typicode.com/posts/1').subscribe(value => {
       this.obiect = value as UserData;
       console.log(value);
+    });
+  }
+
+  sendToServer(): void {
+    const httHeader = {
+      headers: new HttpHeaders({'Content-type': 'application/json ; charset=UTF-8'})
+    };
+    const body: UserData = {title: 'foo', body: 'bar', userId: 1} as UserData;
+    this.http.post('http://jsonplaceholder.typicode.com/posts/', body, httHeader).subscribe(responde => {
+      this.obiect = responde as UserData;
+      console.log(responde);
     });
   }
 }
