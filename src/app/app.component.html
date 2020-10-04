@@ -1,9 +1,15 @@
 <form [formGroup]="modelForm" (ngSubmit)="onSubmit()">
   <div formGroupName="userData">
-  <label>username: <input name="username" formControlName="firstName" l></label>
+  <label>username: <input name="username" formControlName="firstName"></label>
   <label>lastname: <input name="lastname" formControlName="lastName"></label>
   </div>
   <label>age: <input name="age" formControlName="age"></label>
   <label>country: <input name="country" formControlName="country"></label>
   <button type="submit">Wyślij</button>
 </form>
+<div>
+  <div>userId: {{obiect.userId}}</div>
+  <div>id: {{obiect.id}}</div>
+  <div>title: {{obiect.title}}</div>
+  <div>body: {{obiect.body}}</div>
+</div>
