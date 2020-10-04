@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
       age: new FormControl(),
       country: new FormControl()
     });
-    this.updateOnServer();
+    this.deleteOnServer();
   }
 
   onSubmit(): void {
@@ -60,6 +60,12 @@ export class AppComponent implements OnInit {
     this.http.put('http://jsonplaceholder.typicode.com/posts/1', body, httHeader).subscribe(responde => {
       this.obiect = responde as UserData;
       console.log(responde);
+    });
+  }
+
+  deleteOnServer(): void{
+    this.http.delete('http://jsonplaceholder.typicode.com/posts/1').subscribe(response => {
+      console.log(response);
     });
   }
 }
